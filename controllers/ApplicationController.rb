@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   Bundler.require
 
   ActiveRecord::Base.establish_connection(
-    :adapter => 'postgresql',
+    :adapter => ENV['DATABASE_URL'] || 'postgresql',
     :database => 'mexican_food'
   )
 
